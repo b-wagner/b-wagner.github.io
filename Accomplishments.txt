@@ -1,0 +1,52 @@
+Overall
+-Converted builds and dependency management to use Gradle
+-Worked with DevOps team to build and enhance our CI/CD pipeline
+-Currently undergoing a re-architecture of our codebase
+-Introduced unit tests into our codebase.
+-Worked on Cloud Connectors
+-Worked to convert our old JSF Web Client into React
+-Improved the performance and scalability of the GoAnywhere MFT application
+	-Audit log performance
+	-Event Bus
+-Assisted with escalated support items
+
+Gateway
+-Added HTTP and SOCKS forward proxy functionality to Gateway.
+-Added the ability to configure a proxy for license requests to the Customer Portal.
+-Added more configuration options to the GoAnywhere Gateway installer.
+-Reorganized the Gateway Server configuration file.
+-Added support for Java 11.
+-Fixed an issue with activating online licenses.
+-Enhanced request processing to improve efficiency.
+
+MFT
+-Added the ability to save and manage search filters for audit logs and other list pages.
+-Added a new simple date range selector to the filter framework on search pages.
+-Improved keyboard accessibility of the Web Client left navigation.
+-Improved contrast ratio of text that displays on page headers in the Web Client.
+-Added relevant page titles to each page in the Web Client.
+-Improved keyboard accessibility of the Account menu in the Web Client.
+-Improved keyboard accessibility of the More Actions menu on table rows in the Admin and Web Client interfaces.
+-Fixed an issue where hidden items in the Web Client footer can receive keyboard focus when they should not be accessible.
+-Added the ability to specify Service Level Agreements (SLAs) for Monitors, Triggers and Projects. If they do not execute as expected, the SLA will not be met and alerts can be sent, or Projects can be executed to perform additional actions.
+-Added the ability to view the Admin Client interface in 8 additional languages. This includes support for German, French, Spanish, Indonesian, Danish, Japanese, Portuguese, and Chinese.
+-Added new settings on the Admin Server configuration page to enable additional languages for the Admin Client. Also, a Default Language setting can determine which language to is selected for users that access the Admin Client for the first time.
+-Improved the audit log indexing process to better handle very large data sets that were causing memory issues during a full index rebuild on certain databases.
+-Added support for the Dutch language in the Admin Client and Web Client.
+-Added support for the Italian language in the Admin Client and Web Client.
+-Added the ability to specify a custom configuration directory during installation on Windows, Linux, and Unix operating systems.
+-Added new global SSL/TLS security configuration options to enforce client and server certificate validation.
+	-Added a new verification check for X.509 CA certificate Basic Constraints.
+	-Added support for Certificate Revocation Lists (CRLs) verification for all SSL/TLS connections.
+	-Implemented new certificate extended key usage validation for server authentication, client authentication, and email encryption and signature certificates.
+	-Added a date validity check to ensure certificates are valid and not expired.
+	-Added user name and email SAN/DN validation for Admin Users and Web Users that authenticate using digital X.509 certificates.
+-Added support for encrypted key store passwords in the server.xml of the embedded Tomcat webserver.
+-Added support for new PeSIT service.
+-Added support for CC and BCC recipients in Secure Mail.
+-Moved the PeSIT Server ID field from the Web User configuration page to the PeSIT Service configuration page.
+-Added the ability to authenticate against Admin User REST and SOAP endpoints with API Keys.
+-Added support for forward proxies to PeSIT client.
+-Upgraded to Java 11
+-Enhanced the Admin Client to work with the Gateway HTTP/SOCKS proxy.
+-Added support for Amazon S3 STS connections to regional endpoints.
