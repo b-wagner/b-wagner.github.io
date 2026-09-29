@@ -10945,6 +10945,13 @@ p.lead {
   font-size: 3rem;
 }
 
+.openai-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
 section.resume-section {
   display: flex;
   align-items: center;
