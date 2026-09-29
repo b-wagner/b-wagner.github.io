@@ -1,34 +1,60 @@
-/*!
-* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+(() => {
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.site-nav');
+  const navigationLinks = [...document.querySelectorAll('.site-nav a')];
+  const sections = navigationLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const desktopLayout = window.matchMedia('(min-width: 960px)');
+  let framePending = false;
 
-window.addEventListener('DOMContentLoaded', event => {
+  const closeMenu = () => {
+    navigation.classList.remove('is-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  };
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const sideNav = document.body.querySelector('#sideNav');
-    if (sideNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#sideNav',
-            rootMargin: '0px 0px -40%',
-        });
-    };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
+  const setCurrentSection = (id) => {
+    navigationLinks.forEach((link) => {
+      const isCurrent = link.getAttribute('href') === `#${id}`;
+      link.toggleAttribute('aria-current', isCurrent);
+      if (isCurrent) link.setAttribute('aria-current', 'location');
     });
+  };
 
-});
+  const updateCurrentSection = () => {
+    const activationLine = desktopLayout.matches ? 96 : header.offsetHeight + 24;
+    const current = sections.reduce((active, section) => (
+      section.getBoundingClientRect().top <= activationLine ? section : active
+    ), sections[0]);
+    setCurrentSection(current.id);
+    framePending = false;
+  };
+
+  const requestCurrentSectionUpdate = () => {
+    if (!framePending) {
+      framePending = true;
+      window.requestAnimationFrame(updateCurrentSection);
+    }
+  };
+
+  menuButton.addEventListener('click', () => {
+    const isOpen = navigation.classList.toggle('is-open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navigationLinks.forEach((link) => link.addEventListener('click', () => {
+    setCurrentSection(link.hash.slice(1));
+    closeMenu();
+  }));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+
+  window.addEventListener('scroll', requestCurrentSectionUpdate, { passive: true });
+  window.addEventListener('resize', requestCurrentSectionUpdate);
+  window.addEventListener('hashchange', requestCurrentSectionUpdate);
+  requestCurrentSectionUpdate();
+})();

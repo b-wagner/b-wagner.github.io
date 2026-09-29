@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Ben Wagner</title>
+  <rect width="64" height="64" rx="16" fill="#0D1117"/>
+  <path d="M14 10h20c10 0 16 5.8 16 15 0 4.9-2.2 8.3-6.3 10.2C49 37.3 52 41.2 52 46.4 52 56.4 45 62 33.8 62H14V10Z" fill="#58A6FF"/>
+  <path d="M24 19v12h9c4.4 0 7-2.2 7-6s-2.6-6-7-6h-9ZM24 40v13h10c5.1 0 8-2.5 8-6.5S39.1 40 34 40H24Z" fill="#0D1117"/>
+</svg>
