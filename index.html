@@ -19,7 +19,7 @@
         <span class="visually-hidden">Toggle navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
       <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
-        <a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#resources">Resources</a>
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#case-studies">Case Studies</a><a href="#how-i-work">How I Work</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#resources">Influences</a>
       </nav>
       <div class="rail-links" aria-label="Professional profiles">
         <a href="https://www.linkedin.com/in/bw525" target="_blank" rel="noopener noreferrer" aria-label="Ben Wagner on LinkedIn">LinkedIn</a><a href="https://github.com/b-wagner" target="_blank" rel="noopener noreferrer" aria-label="Ben Wagner on GitHub">GitHub</a>
@@ -46,6 +46,59 @@
             <article class="experience-entry fortra-entry"><header class="entry-header"><div><h3>Associate Software Engineer</h3><p class="entry-meta">Fortra <span aria-hidden="true">·</span> Ashland, NE <span aria-hidden="true">·</span> <a href="https://www.goanywhere.com/" target="_blank" rel="noopener noreferrer">GoAnywhere MFT</a></p></div><time datetime="2018-10/2019-11">October 2018 - November 2019</time></header><ul><li>Led admin-client localization changes, refactoring locale handling across logging, UI messages, and input/date formats.</li><li>Optimized data-access queries used to populate Lucene audit-log indexes, improving query performance and preventing out-of-memory application crashes.</li><li>Led accessibility improvements across the web client, including keyboard navigation, focus handling, contrast, and page titles.</li></ul></article>
             <article class="experience-entry"><header class="entry-header"><div><h3>Software Developer</h3><p class="entry-meta">TurfGrade <span aria-hidden="true">·</span> Part-time contract <span aria-hidden="true">·</span> Lincoln, NE</p></div><time datetime="2018-05/2018-12">May 2018 - December 2018</time></header><p>Developed features and resolved defects for the Greenkeeper application using PHP, HTML, jQuery, and MySQL.</p></article>
             <article class="experience-entry"><header class="entry-header"><div><h3>Software Development Engineer in Test</h3><p class="entry-meta">Xpanxion <span aria-hidden="true">·</span> Lincoln, NE</p></div><time datetime="2017-05/2018-10">May 2017 - October 2018</time></header><p>Built Selenium automated tests in Java and C# for client applications and performed manual software testing.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="case-studies-section" id="case-studies" aria-labelledby="case-studies-title">
+        <div class="section-inner">
+          <p class="section-index" aria-hidden="true">02</p>
+          <div class="case-studies-heading">
+            <div><h2 id="case-studies-title">Case Studies</h2><p class="case-studies-intro">A few public-safe examples of the problems I enjoy solving: making mature systems easier to evolve, faster under pressure, and more trustworthy by default.</p></div>
+            <p class="case-studies-note">Details are intentionally high-level to respect customer and employer confidentiality.</p>
+          </div>
+          <div class="case-study-grid">
+            <article class="case-study">
+              <p class="case-study-number">01 / MODERNIZATION</p>
+              <h3>Modernizing a mature web client without pausing delivery</h3>
+              <dl>
+                <div><dt>Challenge</dt><dd>Move a long-lived JSF client toward React while protecting existing functionality and giving a UI team a practical migration path.</dd></div>
+                <div><dt>Approach</dt><dd>Separated UI concerns from business logic, developed supporting REST endpoints, and set direction for incremental conversion work.</dd></div>
+                <div><dt>Result</dt><dd>A clearer architecture and a sustainable path for several engineers to modernize the product in parallel.</dd></div>
+              </dl>
+              <p class="case-study-tools">Java · React · JSF · REST · Architecture</p>
+            </article>
+            <article class="case-study">
+              <p class="case-study-number">02 / PERFORMANCE</p>
+              <h3>Turning a slow intelligence call into a near-instant response</h3>
+              <dl>
+                <div><dt>Challenge</dt><dd>Threat-intelligence API requests added a noticeable delay to a security workflow.</dd></div>
+                <div><dt>Approach</dt><dd>Integrated the service and optimized its request path, focusing on the part of the interaction users felt most.</dd></div>
+                <div><dt>Result</dt><dd>Response time improved from 5–10 seconds to under one second.</dd></div>
+              </dl>
+              <p class="case-study-tools">Java · REST APIs · Performance analysis · Testing</p>
+            </article>
+            <article class="case-study">
+              <p class="case-study-number">03 / SECURITY</p>
+              <h3>Making certificate validation an executable safety net</h3>
+              <dl>
+                <div><dt>Challenge</dt><dd>Strengthen TLS trust checks across the many certificate combinations a file-transfer platform must support.</dd></div>
+                <div><dt>Approach</dt><dd>Implemented validation for revocation, key usage, validity, and identity; then built regression coverage around the connection and certificate matrix.</dd></div>
+                <div><dt>Result</dt><dd>Defects surfaced in automated tests, informing implementation changes before they could reach customers.</dd></div>
+              </dl>
+              <p class="case-study-tools">TLS · X.509 · Java · JUnit · Test automation</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="how-i-work-section" id="how-i-work" aria-labelledby="how-i-work-title">
+        <div class="section-inner">
+          <p class="section-index" aria-hidden="true">03</p>
+          <div class="how-i-work-heading"><div><h2 id="how-i-work-title">How I Work</h2><p>I enjoy engineering work where thoughtful, repeatable decisions compound into better software and stronger teams.</p></div></div>
+          <div class="principle-grid">
+            <article><span>01</span><h3>Understand the system before changing it.</h3><p>I start with the real constraints, dependencies, and customer impact so a change solves the right problem—not just the visible symptom.</p></article>
+            <article><span>02</span><h3>Make progress safe and incremental.</h3><p>For modernization, I favor clear seams, small reversible steps, and a path that lets a product keep delivering while it improves.</p></article>
+            <article><span>03</span><h3>Use tests as feedback, not ceremony.</h3><p>Automated checks make behavior explicit, surface surprises early, and give teams confidence to refactor and ship.</p></article>
+            <article><span>04</span><h3>Leave the team stronger.</h3><p>I share context through pairing, reviews, architecture conversations, and mentorship so people can make good decisions independently.</p></article>
           </div>
         </div>
       </section>
