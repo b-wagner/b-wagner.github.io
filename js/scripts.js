@@ -5,7 +5,41 @@
   const navigationLinks = [...document.querySelectorAll('.site-nav a')];
   const sections = navigationLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   const desktopLayout = window.matchMedia('(min-width: 960px)');
+  const themeToggle = document.querySelector('.theme-toggle');
+  const warmThemeStylesheet = document.getElementById('warm-theme-stylesheet');
+  const themeStorageKey = 'ben-wagner-theme';
   let framePending = false;
+  const resourcesTitle = document.getElementById('resources-title');
+  const resourcesIntro = document.querySelector('#resources .section-intro');
+
+  if (resourcesTitle) resourcesTitle.textContent = 'Influences';
+  if (resourcesIntro) resourcesIntro.textContent = 'Books, talks, and references that have shaped how I approach engineering, leadership, and continuous learning.';
+
+  const applyTheme = (theme) => {
+    const useWarmTheme = theme === 'warm';
+    warmThemeStylesheet.disabled = !useWarmTheme;
+    themeToggle.setAttribute('aria-pressed', String(useWarmTheme));
+    themeToggle.setAttribute('aria-label', useWarmTheme ? 'Use dark style' : 'Use warm retro style');
+    themeToggle.textContent = useWarmTheme ? 'Dark style' : 'Warm style';
+  };
+
+  let savedTheme = 'original';
+  try {
+    savedTheme = window.localStorage.getItem(themeStorageKey) || 'original';
+  } catch {
+    // Storage can be unavailable in strict privacy modes; the original theme remains the default.
+  }
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = themeToggle.getAttribute('aria-pressed') === 'true' ? 'original' : 'warm';
+    applyTheme(nextTheme);
+    try {
+      window.localStorage.setItem(themeStorageKey, nextTheme);
+    } catch {
+      // The toggle still works for the current page when storage is unavailable.
+    }
+  });
 
   const closeMenu = () => {
     navigation.classList.remove('is-open');
